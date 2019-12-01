@@ -1,0 +1,34 @@
+.todo-form {
+  background-color: #fff;
+  border-radius: 4px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  margin: 0 auto 20px;
+  padding: 20px;
+}
+
+.todo-input-add {
+  background-color: #ddd;
+  border-radius: 2px;
+  height: 40px;
+  color: #282c34;
+  border: 0 none;
+  outline: 0 none;
+  padding: 0 10px;
+  flex: 1;
+}
+
+.todo-button-add {
+  border: 0 none;
+  outline: 0 none;
+  height: 40px;
+  background-color: #09d3ac;
+  color: #fff;
+  border-radius: 2px;
+  flex: 0 1;
+  font-weight: bold;
+  padding: 0 10px;
+  margin: 0 0 0 10px;
+  cursor: pointer;
+}

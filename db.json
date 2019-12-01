@@ -1,0 +1,24 @@
+{
+  "todos": [
+    {
+      "id": 2,
+      "name": "Create Initial State",
+      "isComplete": true
+    },
+    {
+      "name": "Add a task triggering message",
+      "isComplete": true,
+      "id": 4
+    },
+    {
+      "name": "Do the washing up",
+      "isComplete": false,
+      "id": 5
+    },
+    {
+      "name": "test",
+      "isComplete": false,
+      "id": 6
+    }
+  ]
+}
