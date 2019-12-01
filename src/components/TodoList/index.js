@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Todo from 'components/Todo/index'
-import './TodoList.css'
+import styles from './TodoList.module.css'
 
 class Index extends Component {
 
@@ -11,8 +11,8 @@ class Index extends Component {
   render() {
     const { todos, toggleTodo, deleteTodo } = this.props
     return (
-      <div className="todo-items">
-        <ul className="todo-list">
+      <div className={styles['todo-items']}>
+        <ul className={styles['todo-list']}>
           {todos.map((todo) => (
             <Todo
               key={todo.id}

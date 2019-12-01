@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import './TodoForm.css'
+import styles from './TodoForm.module.css'
 
 class TodoForm extends Component {
 
@@ -18,16 +18,16 @@ class TodoForm extends Component {
 
     return (
       <form
-        className="todo-form"
+        className={styles['todo-form']}
         onSubmit={this.handleSubmit}
       >
         <input
-          className="todo-input-add"
+          className={styles['todo-input-add']}
           value={currentTodo}
           onChange={this.handleInputChange}
           type={'text'}/>
         <button
-          className="todo-button-add"
+          className={styles['todo-button-add']}
           type="submit"
         >Add</button>
       </form>
