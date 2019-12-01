@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Todo from 'components/Todo/index'
 import styles from './TodoList.module.css'
 
-class Index extends Component {
+class TodoList extends Component {
 
   componentDidMount() {
     this.props.fetchTodos()
@@ -26,4 +26,4 @@ class Index extends Component {
   }
 }
 
-export default Index
+export default TodoList
