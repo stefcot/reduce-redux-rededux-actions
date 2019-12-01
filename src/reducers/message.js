@@ -1,17 +1,14 @@
-import {TODO_ADD, TODOS_INIT, TODO_REPLACE, TODO_DELETE} from './todo'; // reducers can commonly treat actions
-
-const MESSAGE_SHOW = 'MESSAGE_SHOW'
-
-export const showMessage = (msg) => ({type: MESSAGE_SHOW, payload: msg})
+import { ADD_TODO, LOAD_TODOS, REPLACE_TODO, DELETE_TODO } from 'actions/todos/types';
+import { MESSAGE_SHOW } from 'actions/message/types';
 
 export default function(state='', action) {
   switch(action.type) {
     case MESSAGE_SHOW:
       return action.payload
-    case TODO_ADD:
-    case TODOS_INIT:
-    case TODO_REPLACE:
-    case TODO_DELETE:
+    case ADD_TODO:
+    case LOAD_TODOS:
+    case REPLACE_TODO:
+    case DELETE_TODO:
       return '' // or undefined, null
     default:
       return state

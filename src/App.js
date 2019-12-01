@@ -1,9 +1,9 @@
 import React from 'react';
-import {BrowserRouter as Router, Route} from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import logo from './logo.svg';
-import TodoForm from './components/TodoForm';
-import TodoList from './components/TodoList';
-import Message from "./components/Message";
+import TodoForm from 'containers/TodoForm';
+import TodoList from 'containers/TodoList';
+import Message from "containers/Message";
 import Footer from "./components/Footer";
 import './App.css';
 

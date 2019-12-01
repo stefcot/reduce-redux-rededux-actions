@@ -1,12 +1,12 @@
-import {createStore, applyMiddleware, compose, combineReducers} from "redux";
+import { createStore, applyMiddleware, compose, combineReducers } from "redux";
 import thunk from 'redux-thunk' // for asynchronous action
 
-import todoReducer from './reducers/todo'
-import messageReducer from './reducers/message'
+import todoReducer from 'reducers/todos'
+import messageReducer from 'reducers/message'
 
 // create some namespaced combination
 const reducer = combineReducers({
-  todo: todoReducer,
+  todos: todoReducer,
   message: messageReducer
 })
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import './Todo.css'
 
-export default ({id, name, isComplete, toggleTodo, deleteTodo}) => (
+export default ({ id, name, isComplete, toggleTodo, deleteTodo }) => (
   <li className="todo-list-item">
     <input
       id={"cb" + id}

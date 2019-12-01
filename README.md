@@ -1,4 +1,21 @@
+# Create React App with redux-actions
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Modifications to create-react-app
+
+- Added absolute paths support witn jsconfig.json
+```
+{
+  "compilerOptions": {
+    "baseUrl": "src"
+  },
+  "include": ["src"]
+}
+```
+- Set webstorm resource path for consistent code display
+- separated code into features
+
 
 ## Available Scripts
 
