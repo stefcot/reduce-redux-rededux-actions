@@ -1,4 +1,4 @@
-import TodoList from 'components/TodoList'
+import TodoList from 'components/TodoList/index'
 import { connect } from 'react-redux'
 import { fetchTodos, toggleTodo, deleteTodo } from "actions/todos/async";
 import { getVisibleTodos } from "reducers/todos";

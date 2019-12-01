@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import Todo from './Todo'
+import Todo from 'components/Todo/index'
 import './TodoList.css'
 
-class TodoList extends Component {
+class Index extends Component {
 
   componentDidMount() {
     this.props.fetchTodos()
@@ -26,4 +26,4 @@ class TodoList extends Component {
   }
 }
 
-export default TodoList
+export default Index

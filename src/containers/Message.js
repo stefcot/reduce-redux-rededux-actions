@@ -1,5 +1,5 @@
-import Message from 'components/Message'
 import { connect } from "react-redux";
+import Message from 'components/Message/index'
 
 const mapStateToProps = (state) => ({
   message: state.message // passed this way cause it doesn't have any property

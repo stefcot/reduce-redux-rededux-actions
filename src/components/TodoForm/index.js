@@ -1,9 +1,5 @@
-// Gives the JSX support
 import React, {Component} from 'react'
 import './TodoForm.css'
-import { connect } from 'react-redux'
-import { saveTodo } from 'actions/todos/async'
-import { updateCurrent } from 'actions/todos/sync'
 
 class TodoForm extends Component {
 
@@ -39,10 +35,4 @@ class TodoForm extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-  currentTodo: state.todos.currentTodo
-})
-
-const mapDispatchToProps = { updateCurrent, saveTodo }
-
-export default connect(mapStateToProps, mapDispatchToProps)(TodoForm)
+export default TodoForm

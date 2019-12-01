@@ -4,7 +4,7 @@ import logo from './logo.svg';
 import TodoForm from 'containers/TodoForm';
 import TodoList from 'containers/TodoList';
 import Message from "containers/Message";
-import Footer from "./components/Footer";
+import Footer from "components/Footer";
 import './App.css';
 
 class App extends React.Component {
@@ -15,7 +15,7 @@ class App extends React.Component {
           <header className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
             <p>
-              Welcome to the app
+              My own private todo piece of shit
             </p>
             <a
               className="App-link"

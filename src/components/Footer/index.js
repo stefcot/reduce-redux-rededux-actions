@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from "react-router-dom";
 import './Footer.css'
 
-const Footer = (props) => (
+const Index = () => (
   <footer className="footer-cmp">
     <nav className="footer-cmp__nav">
       <ul className="footer-cmp__nav-list">
@@ -20,4 +20,4 @@ const Footer = (props) => (
   </footer>
 )
 
-export default Footer
+export default Index

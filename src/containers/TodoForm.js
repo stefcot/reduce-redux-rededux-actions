@@ -1,4 +1,4 @@
-import TodoForm from 'components/TodoForm'
+import TodoForm from 'components/TodoForm/index'
 import { connect } from 'react-redux'
 import { saveTodo } from 'actions/todos/async'
 import { updateCurrent } from 'actions/todos/sync'
