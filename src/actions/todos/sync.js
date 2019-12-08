@@ -19,13 +19,21 @@ import { createAction } from 'redux-actions'
 }
  */
 
+// Payload creator function passed to updateCurrent function
+const fixeCase = (str) => {
+  return str.split('').reduce((acc, val, idx) => {
+    return idx === 0 ? val.toUpperCase() : `${acc}${val.toLowerCase()}`
+  }, '')
+}
+
 // reproduce the pattern where the action creator takes one argument to feed the payload action property
-export const updateCurrent = createAction(UPDATE_CURRENT)
+export const updateCurrent = createAction(UPDATE_CURRENT, fixeCase)
 export const initTodos = createAction(LOAD_TODOS)
 export const addTodo = createAction(ADD_TODO)
 export const replaceTodo = createAction(REPLACE_TODO)
 export const removeTodo = createAction(DELETE_TODO)
 
-export const showLoader = () => ({ type: SHOW_LOADER, payload: true })
-export const hideLoader = () => ({ type: HIDE_LOADER, payload: false })
+// For hard coded, payload value, we pass a payload function creator
+export const showLoader = createAction(SHOW_LOADER, () => true)
+export const hideLoader = createAction(HIDE_LOADER, () => false)
 
