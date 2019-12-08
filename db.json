@@ -19,11 +19,6 @@
       "name": "Adding a todo",
       "isComplete": false,
       "id": 7
-    },
-    {
-      "name": "Adding todo with refactored reducer",
-      "isComplete": true,
-      "id": 8
     }
   ]
 }
