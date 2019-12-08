@@ -39,7 +39,6 @@ export default (state = initialState, action) => {
       return {...state, currentTodo: action.payload}
     case SHOW_LOADER:
     case HIDE_LOADER:
-      console.log(action)
       return {...state, isLoading: action.payload}
     default:
       return state
