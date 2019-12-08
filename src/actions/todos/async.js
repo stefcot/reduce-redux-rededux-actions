@@ -1,4 +1,5 @@
 import { getTodos, createTodo, updateTodo, destroyTodo } from "lib/services/todos";
+// exported actions that as now combined by createActions utility from redux-actions
 import { loadTodos, replaceTodo, addTodo, deleteTodo, showLoader, hideLoader } from "actions/todos/sync";
 import { showMessage } from "actions/message/sync";
 
