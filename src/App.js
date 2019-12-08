@@ -1,10 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import {connect} from 'react-redux'
 import logo from './logo.svg';
 import TodoForm from 'containers/TodoForm';
 import TodoList from 'containers/TodoList';
 import Message from "containers/Message";
 import Footer from "components/Footer";
+import Loader from "components/Loader";
 import './App.css';
 
 class App extends React.Component {
@@ -28,6 +30,9 @@ class App extends React.Component {
           </header>
           <main className="todo-page">
             <section className="todo-app">
+              {this.props.isLoading ? (
+                <Loader />
+              ) : null}
               <Message message={'test of message !!!!'}/>
               <TodoForm />
               <Route
@@ -46,4 +51,4 @@ class App extends React.Component {
   }
 }
 
-export default App
+export default connect(state => ({isLoading: state.todos.isLoading}))(App)

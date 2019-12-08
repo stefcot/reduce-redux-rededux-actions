@@ -1,8 +1,9 @@
-import { CURRENT_UPDATE, LOAD_TODOS, ADD_TODO, REPLACE_TODO, DELETE_TODO } from 'actions/todos/types'
+import { UPDATE_CURRENT, LOAD_TODOS, ADD_TODO, REPLACE_TODO, DELETE_TODO, SHOW_LOADER, HIDE_LOADER } from 'actions/todos/types'
 
 const initialState = {
   todos: [],
-  currentTodo: ''
+  currentTodo: '',
+  isLoading: false
 }
 
 export const getVisibleTodos = (todos, filter) => {
@@ -34,8 +35,12 @@ export default (state = initialState, action) => {
         ...state,
         todos: state.todos.filter((todo) => todo.id !== action.payload )
       }
-    case CURRENT_UPDATE:
+    case UPDATE_CURRENT:
       return {...state, currentTodo: action.payload}
+    case SHOW_LOADER:
+    case HIDE_LOADER:
+      console.log(action)
+      return {...state, isLoading: action.payload}
     default:
       return state
   }
