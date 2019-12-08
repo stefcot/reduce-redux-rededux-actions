@@ -1,5 +1,5 @@
 import { getTodos, createTodo, updateTodo, destroyTodo } from "lib/services/todos";
-import { initTodos, replaceTodo, addTodo, removeTodo, showLoader, hideLoader } from "actions/todos/sync";
+import { loadTodos, replaceTodo, addTodo, deleteTodo, showLoader, hideLoader } from "actions/todos/sync";
 import { showMessage } from "actions/message/sync";
 
 const sleep = (ms) => {
@@ -16,9 +16,8 @@ export const saveTodo = (name) => {
     dispatch(showMessage('Saving new todo...'))
     createTodo(name)
         .then((res) => {
-          console.log(res)
-          dispatch(hideLoader())
           dispatch(addTodo(res))
+          dispatch(hideLoader())
         })
   }
 }
@@ -30,8 +29,8 @@ export const fetchTodos = () => {
     dispatch(showMessage('Loading todos list...'))
     getTodos()
         .then((todos) => {
+          dispatch(loadTodos(todos))
           dispatch(hideLoader())
-          dispatch(initTodos(todos))
         })
   }
 }
@@ -50,25 +49,24 @@ export const toggleTodo = (id) => {
       await sleep(1000);// some mock delay in the request
       // update service
       const res = await updateTodo(toggledTodo)
-      dispatch(hideLoader())
       dispatch(replaceTodo(res))
-    } catch(err) {
       dispatch(hideLoader())
+    } catch(err) {
       dispatch(showMessage('<span class="error">An error occured</span>'))
+      dispatch(hideLoader())
     }
   }
 }
 
 // DELETE: Async action creator for deleting item,
-export const deleteTodo = (id) => {
+export const removeTodo = (id) => {
   return (dispatch) => {
     dispatch(showLoader())
     dispatch(showMessage('Deleting todo...'))
     destroyTodo(id)
         .then((res) => {
-          console.log(res)
+          dispatch(deleteTodo(id))
           dispatch(hideLoader())
-          dispatch(removeTodo(id))
         })
   }
 }

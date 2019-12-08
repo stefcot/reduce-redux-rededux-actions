@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './Todo.module.css'
 
-export default ({ id, name, isComplete, toggleTodo, deleteTodo }) => (
+export default ({ id, name, isComplete, toggleTodo, removeTodo }) => (
   <li className={styles['todo-list-item']}>
     <input
       id={"cb" + id}
@@ -14,6 +14,6 @@ export default ({ id, name, isComplete, toggleTodo, deleteTodo }) => (
     <span className={styles['todo-list-item-label']}>{name}</span>
     <button
       className={styles['todo-list-item-button-delete']}
-      onClick={() => deleteTodo(id)}>X</button>
+      onClick={() => removeTodo(id)}>X</button>
   </li>
 )

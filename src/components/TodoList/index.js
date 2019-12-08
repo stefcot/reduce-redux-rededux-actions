@@ -9,7 +9,7 @@ class TodoList extends Component {
   }
 
   render() {
-    const { todos, toggleTodo, deleteTodo } = this.props
+    const { todos, toggleTodo, removeTodo } = this.props
     return (
       <div className={styles['todo-items']}>
         <ul className={styles['todo-list']}>
@@ -17,7 +17,7 @@ class TodoList extends Component {
             <Todo
               key={todo.id}
               toggleTodo={ toggleTodo }
-              deleteTodo={ deleteTodo }
+              removeTodo={ removeTodo }
               { ...todo } />
           ))}
         </ul>

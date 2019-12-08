@@ -3,7 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="0d1a6b61-ec11-4350-b3bd-74dba1579f6e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.json" beforeDir="false" afterPath="$PROJECT_DIR$/db.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actions/todos/async.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/todos/async.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/actions/todos/sync.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/todos/sync.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Todo/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Todo/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/TodoList/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TodoList/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/TodoList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/TodoList.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +92,7 @@
       <option name="presentableId" value="Default" />
       <updated>1575217656803</updated>
       <workItem from="1575217658350" duration="9361000" />
-      <workItem from="1575824390948" duration="5017000" />
+      <workItem from="1575824390948" duration="6272000" />
     </task>
     <servers />
   </component>
@@ -112,10 +117,10 @@
       <screen x="0" y="28" width="1920" height="1052" />
     </state>
     <state x="96" y="124" width="1728" height="860" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.28.1920.1052/1920.423.1366.768@0.28.1920.1052" timestamp="1575828832214" />
-    <state x="605" y="269" width="710" height="570" key="find.popup" timestamp="1575825840198">
+    <state x="605" y="269" width="710" height="570" key="find.popup" timestamp="1575829738273">
       <screen x="0" y="28" width="1920" height="1052" />
     </state>
-    <state x="605" y="269" width="710" height="570" key="find.popup/0.28.1920.1052/1920.423.1366.768@0.28.1920.1052" timestamp="1575825840198" />
+    <state x="605" y="269" width="710" height="570" key="find.popup/0.28.1920.1052/1920.423.1366.768@0.28.1920.1052" timestamp="1575829738273" />
     <state x="620" y="255" key="run.anything.popup" timestamp="1575825889788">
       <screen x="0" y="28" width="1920" height="1052" />
     </state>

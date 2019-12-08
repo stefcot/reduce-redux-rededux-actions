@@ -16,11 +16,6 @@
       "id": 5
     },
     {
-      "name": "test",
-      "isComplete": false,
-      "id": 6
-    },
-    {
       "name": "Adding a todo",
       "isComplete": false,
       "id": 7
