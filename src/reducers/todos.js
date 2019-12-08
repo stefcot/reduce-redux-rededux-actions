@@ -7,7 +7,7 @@ import {
   SHOW_LOADER,
   HIDE_LOADER
 } from "actions/todos/types";
-import { handleAction } from "redux-actions";
+import { handleAction, combineActions } from "redux-actions";
 import reduceReducers from "reduce-reducers";
 
 const initialState = {
@@ -113,34 +113,42 @@ const updateCurrentReducer = handleAction(
  *
  * @type {function(...[*]=)}
  */
-const showLoaderReducer = handleAction(
-  SHOW_LOADER,
-  (state, action) => {
-    return { ...state, isLoading: action.payload };
-  },
-  initialState
-);
+// const showLoaderReducer = handleAction(
+//   SHOW_LOADER,
+//   (state, action) => {
+//     return { ...state, isLoading: action.payload };
+//   },
+//   initialState
+// );
 
 /**
  * Specific reducer function for HIDE_LOADER action
  *
  * @type {function(...[*]=)}
  */
-const hideLoaderReducer = handleAction(
-  HIDE_LOADER,
+// const hideLoaderReducer = handleAction(
+//   HIDE_LOADER,
+//   (state, action) => {
+//     return { ...state, isLoading: action.payload };
+//   },
+//   initialState
+// );
+
+// COMBINED ACTIONS THAT DO THE SAME TREATMENT
+const loaderReducer = handleAction(
+  combineActions(SHOW_LOADER, HIDE_LOADER),
   (state, action) => {
     return { ...state, isLoading: action.payload };
   },
   initialState
 );
 
-// COMBINED REDUCER AND REDUCERS FUNCTIONS, ALSO CAN KEEP CLASSIC SWITCH NASED REDUCER
+// COMBINED REDUCER AND REDUCERS FUNCTIONS, ALSO CAN KEEP CLASSIC SWITCH BASED REDUCER
 export default reduceReducers(
   loadTodosReducer,
   addTodoReducer,
   replaceTodoReducer,
   deleteTodoReducer,
   updateCurrentReducer,
-  showLoaderReducer,
-  hideLoaderReducer
+  loaderReducer
 );
