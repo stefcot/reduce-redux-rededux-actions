@@ -3,12 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0d1a6b61-ec11-4350-b3bd-74dba1579f6e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.json" beforeDir="false" afterPath="$PROJECT_DIR$/db.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actions/todos/async.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/todos/async.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/actions/todos/sync.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/todos/sync.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Todo/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Todo/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/TodoList/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TodoList/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/TodoList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/TodoList.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +87,7 @@
       <option name="presentableId" value="Default" />
       <updated>1575217656803</updated>
       <workItem from="1575217658350" duration="9361000" />
-      <workItem from="1575824390948" duration="6272000" />
+      <workItem from="1575824390948" duration="7781000" />
     </task>
     <servers />
   </component>
