@@ -1,5 +1,13 @@
 const BASE_URL = process.env.REACT_APP_BASE_URL
 
+const handleNetworkErrors = (res) => {
+  const { ok, status, statusText, url} = res
+  if (!ok) {
+    throw Error(`<span class="error">Error ${status}: ${statusText}<br>URL: ${url}</span>`);
+  }
+  return res;
+}
+
 /**
  * Gets all todos at app start
  *
@@ -7,12 +15,10 @@ const BASE_URL = process.env.REACT_APP_BASE_URL
  */
 export const getTodos = () => {
   return fetch(BASE_URL)
-    .then((res) => {
-      return res.json()
-    })
-      // .then(() => {
-      // throw new Error('Can\'t get todos list')
-      // })
+      .then(handleNetworkErrors) // Chained at this stage of the returned response
+      .then((res) => {
+        return res.json()
+      })
 }
 
 /**

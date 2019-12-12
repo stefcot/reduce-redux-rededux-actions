@@ -39,7 +39,7 @@ const fixeCase = (str) => {
 // export const showLoader = createAction(SHOW_LOADER, () => true)
 // export const hideLoader = createAction(HIDE_LOADER, () => false)
 
-// By default, all action creator are accessible by a camelCase reference to them,
+// By default, all action creators are accessible by a camelCase reference to them,
 // which is the naming convention adopted before
 export const {
   updateCurrent,
@@ -52,10 +52,12 @@ export const {
 } = createActions({
   UPDATE_CURRENT: fixeCase,
   SHOW_LOADER: () => true,
-  HIDE_LOADER: () => false
+  HIDE_LOADER: () => false,
+  // using an identity function as the payload creator, then,
+  // for the meta creator, just destructuring the result and keeping name
+  ADD_TODO: [x => x, (_, name)=>({name})],// passed to addTodo action creator
+  LOAD_TODOS: [x => x, (_, name)=>({name})],// passed to loadTodos action creator
 },
-  LOAD_TODOS, // map other actions with no redefined payload creator
-  ADD_TODO,
-  REPLACE_TODO,
+  REPLACE_TODO, // map other actions with no redefined payload creator
   DELETE_TODO
 )

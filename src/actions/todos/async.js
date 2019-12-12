@@ -20,6 +20,13 @@ export const saveTodo = (name) => {
         dispatch(addTodo(res))
         dispatch(hideLoader())
       })
+        .catch(err => {
+          // Here 'err' is an not an object anymore, but a HTML string
+          // that gonna be extended with the name of the todoTask
+          console.log(err)
+          dispatch(addTodo(err, name))
+          dispatch(hideLoader())
+        })
   }
 }
 
@@ -30,10 +37,14 @@ export const fetchTodos = () => {
     dispatch(showMessage('Loading todos list...'))
     getTodos()
       .then((todos) => {
+        console.log(todos)
         dispatch(loadTodos(todos))
         dispatch(hideLoader())
-      }).catch(err => {// Here 'err' is an object
-        dispatch(loadTodos(err))
+      }).catch(err => {
+        // Here 'err' is an not an object anymore, but a HTML string
+        // that gonna be extended with the name of the todoTask
+        console.log(err)
+        dispatch(loadTodos(err, '<br>Please try again'))
         dispatch(hideLoader())
       })
   }
@@ -68,9 +79,9 @@ export const removeTodo = (id) => {
     dispatch(showLoader())
     dispatch(showMessage('Deleting todo...'))
     destroyTodo(id)
-        .then((res) => {
-          dispatch(deleteTodo(id))
-          dispatch(hideLoader())
-        })
+      .then((res) => {
+        dispatch(deleteTodo(id))
+        dispatch(hideLoader())
+      })
   }
 }

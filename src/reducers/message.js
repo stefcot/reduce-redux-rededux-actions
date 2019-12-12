@@ -13,11 +13,11 @@ const reducer = handleActions({
       return { ...state, text: '' };
     },
     throw: (state,action) => ({
-      ...state, text: action.payload.message
+      ...state, text: `${action.payload.message}${action.meta ? action.meta.name : ''}`
     })
   },
 
-  MESSAGE_SHOW: (state,action) => ({
+  [MESSAGE_SHOW]: (state,action) => ({
     ...state, text: action.payload
   })
 
