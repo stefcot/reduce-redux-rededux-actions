@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
+    "react-app-rewired": "^2.1.5",
     "react-scripts": "3.2.0"
   },
   "dependencies": {

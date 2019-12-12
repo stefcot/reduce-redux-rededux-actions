@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import {
   UPDATE_CURRENT,
   LOAD_TODOS,
@@ -7,8 +8,7 @@ import {
   SHOW_LOADER,
   HIDE_LOADER
 } from "actions/todos/types";
-import { handleAction } from "redux-actions";
-import reduceReducers from "reduce-reducers";
+import { handleActions, combineActions } from "redux-actions";
 
 const initialState = {
   todos: [],
@@ -16,6 +16,13 @@ const initialState = {
   isLoading: false
 };
 
+/**
+ * Shall reduce the todos list to a filtered one, can be moved to a util, function, reducer dir
+ *
+ * @param todos
+ * @param filter
+ * @returns {*}
+ */
 export const getVisibleTodos = (todos, filter) => {
   switch (filter) {
     case "active":
@@ -27,120 +34,41 @@ export const getVisibleTodos = (todos, filter) => {
   }
 };
 
-//////////////////////////////////////// SPECIFIC REDUCER FUNCTION FOR EACH ACTION
-
-/**
- * Specific reducer function for ADD_TODO action
- *
- * @type {function(...[*]=)}
- */
-const addTodoReducer = handleAction(
-  ADD_TODO,
-  (state, action) => {
-    return {
-      ...state,
-      currentTodo: "",
-      todos: [...state.todos, ...[action.payload]]
-    };
-    // or return {...state, todos: state.todos.concat(action.payload)
+// ALL ACTIONS HANDLERS ARE NOW COMBINED INTO ONE REDUCER,
+// NOW A CLASSIC REDUCER CANNOT BE COMBINED
+export default handleActions(
+  {
+    UPDATE_CURRENT: (state, action) => {
+      return { ...state, currentTodo: action.payload };
+    },
+    [combineActions(SHOW_LOADER, HIDE_LOADER)]: (state, action) => {
+      return { ...state, isLoading: action.payload };
+    },
+    ADD_TODO: (state, action) => {
+      return {
+        ...state,
+        currentTodo: "",
+        todos: [...state.todos, ...[action.payload]]
+      };
+    },
+    LOAD_TODOS: (state, action) => {
+      return { ...state, todos: action.payload };
+    },
+    REPLACE_TODO: (state, action) => {
+      return {
+        ...state,
+        // if, in the list, an item has the same id as the passed payload, it gets replaced
+        todos: state.todos.map(todo =>
+          todo.id === action.payload.id ? action.payload : todo
+        )
+      };
+    },
+    DELETE_TODO: (state, action) => {
+      return {
+        ...state,
+        todos: state.todos.filter(todo => todo.id !== action.payload)
+      };
+    }
   },
   initialState
-);
-
-/**
- * Specific reducer function for LOAD_TODOS action
- *
- * @type {function(...[*]=)}
- */
-const loadTodosReducer = handleAction(
-  LOAD_TODOS,
-  (state, action) => {
-    return { ...state, todos: action.payload };
-  },
-  initialState
-);
-
-/**
- * Specific reducer function for REPLACE_TODO action
- *
- * @type {function(...[*]=)}
- */
-const replaceTodoReducer = handleAction(
-  REPLACE_TODO,
-  (state, action) => {
-    return {
-      ...state,
-      // if, in the list, an item has the same id as the passed payload, it gets replaced
-      todos: state.todos.map(todo =>
-        todo.id === action.payload.id ? action.payload : todo
-      )
-    };
-  },
-  initialState
-);
-
-/**
- * Specific reducer function for DELETE_TODO action
- *
- * @type {function(...[*]=)}
- */
-const deleteTodoReducer = handleAction(
-  DELETE_TODO,
-  (state, action) => {
-    return {
-      ...state,
-      todos: state.todos.filter(todo => todo.id !== action.payload)
-    };
-  },
-  initialState
-);
-
-/**
- * Specific reducer function for UPDATE_CURRENT action
- *
- * @type {function(...[*]=)}
- */
-const updateCurrentReducer = handleAction(
-  UPDATE_CURRENT,
-  (state, action) => {
-    return { ...state, currentTodo: action.payload };
-  },
-  initialState
-);
-
-/**
- * Specific reducer function for SHOW_LOADER action
- *
- * @type {function(...[*]=)}
- */
-const showLoaderReducer = handleAction(
-  SHOW_LOADER,
-  (state, action) => {
-    return { ...state, isLoading: action.payload };
-  },
-  initialState
-);
-
-/**
- * Specific reducer function for HIDE_LOADER action
- *
- * @type {function(...[*]=)}
- */
-const hideLoaderReducer = handleAction(
-  HIDE_LOADER,
-  (state, action) => {
-    return { ...state, isLoading: action.payload };
-  },
-  initialState
-);
-
-// COMBINED REDUCER AND REDUCERS FUNCTIONS, ALSO CAN KEEP CLASSIC SWITCH NASED REDUCER
-export default reduceReducers(
-  loadTodosReducer,
-  addTodoReducer,
-  replaceTodoReducer,
-  deleteTodoReducer,
-  updateCurrentReducer,
-  showLoaderReducer,
-  hideLoaderReducer
 );

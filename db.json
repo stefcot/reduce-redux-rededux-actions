@@ -12,13 +12,23 @@
     },
     {
       "name": "Do the washing up",
-      "isComplete": true,
+      "isComplete": false,
       "id": 5
     },
     {
       "name": "Adding a todo",
       "isComplete": false,
       "id": 7
+    },
+    {
+      "name": "Readding a todo",
+      "isComplete": false,
+      "id": 8
+    },
+    {
+      "name": "Testing message reducers actions",
+      "isComplete": true,
+      "id": 9
     }
   ]
 }
