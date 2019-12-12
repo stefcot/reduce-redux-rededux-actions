@@ -16,10 +16,10 @@ export const saveTodo = (name) => {
     dispatch(showLoader())
     dispatch(showMessage('Saving new todo...'))
     createTodo(name)
-        .then((res) => {
-          dispatch(addTodo(res))
-          dispatch(hideLoader())
-        })
+      .then((res) => {
+        dispatch(addTodo(res))
+        dispatch(hideLoader())
+      })
   }
 }
 
@@ -29,10 +29,13 @@ export const fetchTodos = () => {
     dispatch(showLoader())
     dispatch(showMessage('Loading todos list...'))
     getTodos()
-        .then((todos) => {
-          dispatch(loadTodos(todos))
-          dispatch(hideLoader())
-        })
+      .then((todos) => {
+        dispatch(loadTodos(todos))
+        dispatch(hideLoader())
+      }).catch(err => {// Here 'err' is an object
+        dispatch(loadTodos(err))
+        dispatch(hideLoader())
+      })
   }
 }
 

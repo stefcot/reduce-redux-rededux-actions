@@ -10,6 +10,9 @@ export const getTodos = () => {
     .then((res) => {
       return res.json()
     })
+      // .then(() => {
+      // throw new Error('Can\'t get todos list')
+      // })
 }
 
 /**

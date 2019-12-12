@@ -41,9 +41,11 @@ export default handleActions(
     UPDATE_CURRENT: (state, action) => {
       return { ...state, currentTodo: action.payload };
     },
+
     [combineActions(SHOW_LOADER, HIDE_LOADER)]: (state, action) => {
       return { ...state, isLoading: action.payload };
     },
+
     ADD_TODO: (state, action) => {
       return {
         ...state,
@@ -51,9 +53,13 @@ export default handleActions(
         todos: [...state.todos, ...[action.payload]]
       };
     },
-    LOAD_TODOS: (state, action) => {
-      return { ...state, todos: action.payload };
+
+    LOAD_TODOS: {
+      next:(state, action) => {
+        return { ...state, todos: action.payload };
+      },
     },
+
     REPLACE_TODO: (state, action) => {
       return {
         ...state,
@@ -63,6 +69,7 @@ export default handleActions(
         )
       };
     },
+
     DELETE_TODO: (state, action) => {
       return {
         ...state,

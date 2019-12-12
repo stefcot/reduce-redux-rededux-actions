@@ -8,9 +8,15 @@ const initialState = {
 }
 
 const reducer = handleActions({
-  [combineActions(ADD_TODO, LOAD_TODOS, REPLACE_TODO, DELETE_TODO)]: (state) => ({
-    ...state, text: ''
-  }),
+  [combineActions(ADD_TODO, LOAD_TODOS, REPLACE_TODO, DELETE_TODO)]: {
+    next:(state) => {
+      return { ...state, text: '' };
+    },
+    throw: (state,action) => ({
+      ...state, text: action.payload.message
+    })
+  },
+
   MESSAGE_SHOW: (state,action) => ({
     ...state, text: action.payload
   })
